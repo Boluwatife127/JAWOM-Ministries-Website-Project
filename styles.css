@@ -21,6 +21,7 @@ header {
     background-color: transparent; /* Dark Teal for the header */
     padding: 10px 10px;
     border-radius: 8px;
+    transition: background-color 0.5s ease-in-out;
     position: fixed; /* Keeps header fixed at the top */
     top: 0;
     left: 0;
@@ -97,7 +98,7 @@ nav ul li i {
     margin-right: 8px;
 }
 
-button {
+header button {
     background-color: #E76F51; /* Light Red button for emphasis */
     color: white;
     border: none;
@@ -109,10 +110,12 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+header button:hover {
     background-color: #C7001B; /* Darker red on hover */
 }
-
+header button i{
+    margin-right: 3px;
+}
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -537,6 +540,8 @@ footer {
     background-color: #2A9D8F;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    color: white;
+    border: none;
 }
 
 .welcome-message button:hover {
@@ -554,4 +559,104 @@ footer {
         opacity: 1;
         transform: translateX(0); /* End at the original position */
     }
+}
+.sermon-section {
+    height: 100vh;
+    position: relative;
+    background-image: url('images/pexels-mark-david-cinense-1809381292-28960174.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 90px 80px ;
+}
+
+.sermon-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.sermon-section:hover::after {
+    opacity: 0.9;
+}
+
+/* Ensure the content stays on top of the gradient */
+.sermon-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+.sermon-section img {
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 12px 12px 12px #000203;
+}
+
+.sermon-section .left, 
+.sermon-section .right {
+    position: relative; /* Ensure child elements like the button-container use this as reference */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sermon-section .right .span{
+    padding: 5px 10px;
+    background-color: #C7001B;
+     cursor: pointer;
+    color: white;
+}
+.sermon-section .right .span:hover{
+    background-color: #E76F51;
+    transition: 0.5s ease-in-out;
+}
+.sermon-section .text {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.sermon-section .text p {
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.button-container {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sermon-section button {
+    width: 100%; /* Adjust width as needed */
+    padding: 15px;
+    color: white;
+    background-color: #264653;
+    border: 2px solid #264653;
+    font-size: 1.2rem;
+    font-family: Poppins, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px #030f13;
+}
+
+.sermon-section button:hover {
+    border: 2px solid #f39c12;
+    background-color: transparent;
 }

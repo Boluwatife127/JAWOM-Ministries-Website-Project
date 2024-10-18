@@ -1,12 +1,24 @@
 # JAWOM-Ministries-Website-Project
 
 home 
+
+
+
 sermon
-centers
+
 event
-location
+
+streng for my dats devotional 
+
+centers|location
+
 about  us 
-amd contact
+
+
+amd contact and footer section 
+
+
+
 
 yes watch past sermons 
 

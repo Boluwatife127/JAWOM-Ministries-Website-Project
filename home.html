@@ -143,11 +143,13 @@
 
 
 
+
+
     <div class="welcome-message">
         <div class="card">
             <h1>Preaching Jesus The Life and The Soon Coming King</h1>
             <p>For over 40 years, we’ve built a thriving community that celebrates faith, love, and unity.
-    
+
                 Here at JAWOM, we believe in lifting up Jesus and sharing His message with everyone, one person at a
                 time, until it reaches many. Whether you're new or returning, you are invited to be part of
                 something greater—a place to grow, connect, and make a difference. Together, let’s walk in faith and
@@ -155,15 +157,54 @@
             </p>
             <center><button>Read More</button></center>
         </div>
-    
+
         <div class="card a">
             <div class="floating-text">
-                We welcome you to the house of JAWOM. We welcome you to the house of the Lord. We are small enough to know you, big enough to contain you. Welcome you to this great family!
+                We welcome you to the house of JAWOM. We welcome you to the house of the Lord. We are small enough to
+                know you, big enough to contain you. Welcome you to this great family!
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="sermon-section">
+        <div class="left">
+            <img src="images/pexels-valeria-vinnik-51738-246351.jpg" alt="Sermon Image">
+            <div class="button-container">
+                <button>WATCH</button>
+            </div>
+        </div>
+    
+        <div class="right">
+            <div class="text">
+                <h3>Recent Sermon Topic: Doxology</h3>
+                <h3>Preacher: Bishop David Bakare</h3>
+
+
+                <span>October 21, 2024</span>
+
+
+                <!-- <br>
+                <span class="span"> Live Now !</span> -->
+               
+
+                <p>
+                    <b><i>"Praise be to God, from whom all blessings flow!"</i></b>
+                    Join us as we explore the power of doxology—the act of giving glory to God in all things. Discover how 
+                    our lives, words, and actions can reflect God’s majesty and grace. Through gratitude and worship, we’ll 
+                    learn to cultivate a spirit that exalts Him in every season of life.
+                    <br><br>
+                    <b>Scripture Focus:</b> Psalm 150:6 – <i>"Let everything that has breath praise the Lord."</i> 
+                </p>
+            </div>
+            <div class="button-container">
+                <button>ALL SERMONS</button>
             </div>
         </div>
     </div>
     
-
 
 </body>
 
@@ -265,23 +306,46 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
-    // Create an Intersection Observer to detect when the element is in view
-    const welcomeMessage = document.querySelector('.card');
+        // Create an Intersection Observer to detect when the element is in view
+        const welcomeMessage = document.querySelector('.card');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                // Add the class to trigger the animation when the section comes into view
-                welcomeMessage.classList.add('fade-in-from-bottom');
-                observer.unobserve(entry.target); // Stop observing after the animation
-            }
-        });
-    }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Add the class to trigger the animation when the section comes into view
+                    welcomeMessage.classList.add('fade-in-from-bottom');
+                    observer.unobserve(entry.target); // Stop observing after the animation
+                }
+            });
+        }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
 
-    // Observe the welcome message section
-    observer.observe(welcomeMessage);
-   
+        // Observe the welcome message section
+        observer.observe(welcomeMessage);
+
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header'); // Select your header
+    const welcomeMessage = document.querySelector('.welcome-message');
+
+    // Function to check scroll position relative to .welcome-message
+    const handleScroll = () => {
+        const welcomeMessageTop = welcomeMessage.getBoundingClientRect().top;
+        
+        // Check if we've scrolled to or below the welcome-message section
+        if (welcomeMessageTop <= 0) {
+            header.style.backgroundColor = '#264653';
+        } else {
+            header.style.backgroundColor = 'transparent';
+        }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
 });
+
+
 
 </script>
 </script>
