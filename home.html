@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAWOM Ministries | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/jawom logo - Copy.png" type="image/x-icon">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/jawom logo - Copy.png" height="60" width="70" alt="JAWOM Logo">
+            <div class="logo-text">
+                <span class="main">JAWOM</span>
+                <span class="sub">Jesus Is Life World Outreach Ministries</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a class="a" href="#"><i class="fa fa-heart" aria-hidden="true"></i>Give</a></li>
+
+                <li><a class="b" href="#"><i class="fas fa-handshake"></i>New To JAWOM</a></li>
+
+                <li><a class="c" href="#"><i class="fas fa-bible"></i>Devotional</a></li>
+            </ul>
+        </nav>
+
+        <button id="openSidebarBtn"><i class="fa fa-bars" aria-hidden="true"></i> Open</button>
+    </header>
+
+
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebarBtn">&times;</button>
+        <br>
+        <div class="sidebar-content">
+            <div class="banner">
+                Next Service Begins in:
+                <div class="countdown" id="countdownTimer">00d 00h 00m 00s</div>
+                <button>Join Us Online</button>
+            </div>
+
+
+            <div class="menu-container">
+                <ul>
+                    <li><a href="">Centers</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Sermons</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+
+                <ul>
+                    <h3>Volunteer</h3>
+                    <li>On Campus</li>
+                    <li>Local Community</li>
+                    <li>Mission Experiences</li>
+                </ul>
+
+                <ul>
+                    <h3>Connect</h3>
+
+                    <li>Prayer Day</li>
+                    <li>Youths</li>
+                    <li>Kids</li>
+                    <li>Weekly Activities</li>
+                </ul>
+            </div>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <footer>&copy; 2024 JAWOM All Rights Reserved.</footer>
+        </div>
+    </div>
+
+
+    <div class="slider-container" id="hero">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active" style="background-image: url('images/pexels-brett-sayles-3633711.jpg');">
+                    <div class="overlay"></div>
+                    <div class="slide-content">
+                        <h2>Welcome to JAWOM</h2>
+                        <p>Jesus is Life World Outreach Ministries</p>
+
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('images/pexels-chad-kirchoff-346647-952437.jpg');">
+                    <div class="overlay"></div>
+                    <div class="slide-content">
+                        <h2>Gather With Us Across Our Locations</h2>
+                        <div class="button">Our Locations</div>
+
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('images/pexels-jibarofoto-2774546.jpg');">
+                    <div class="overlay"></div>
+                    <div class="slide-content">
+                        <h2>Watch inspiring video sermons to uplift your faith.</h2>
+                        <div class="button a">Watch Now</div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('images/pexels-lstan-2147029.jpg');">
+                    <div class="overlay"></div>
+                    <div class="slide-content">
+                        <h2>Experience TMC '24 with inspiring sessions and moments.</h2>
+                        <div class="button b">Join the Event</div>
+                    </div>
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <div class="text-item active" style="border-top: 3px solid #264653;" onclick="goToSlide(0)">
+                <i class="fas fa-church"></i> Church
+            </div>
+            <div class="text-item" style="border-top: 3px solid #2A9D8F;" onclick="goToSlide(1)">
+                <i class="fas fa-map-marker-alt"></i> Locations
+            </div>
+            <div class="text-item" style="border-top: 3px solid #E9C46A;" onclick="goToSlide(2)">
+                <i class="fas fa-bible"></i> Sermons
+            </div>
+            <div class="text-item" style="border-top: 3px solid #F4A261;" onclick="goToSlide(3)">
+                <i class="fas fa-calendar-alt"></i> TMC' 24
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="welcome-message">
+        <div class="card">
+            <h1>Preaching Jesus The Life and The Soon Coming King</h1>
+            <p>For over 40 years, we’ve built a thriving community that celebrates faith, love, and unity.
+    
+                Here at JAWOM, we believe in lifting up Jesus and sharing His message with everyone, one person at a
+                time, until it reaches many. Whether you're new or returning, you are invited to be part of
+                something greater—a place to grow, connect, and make a difference. Together, let’s walk in faith and
+                transform lives!
+            </p>
+            <center><button>Read More</button></center>
+        </div>
+    
+        <div class="card a">
+            <div class="floating-text">
+                We welcome you to the house of JAWOM. We welcome you to the house of the Lord. We are small enough to know you, big enough to contain you. Welcome you to this great family!
+            </div>
+        </div>
+    </div>
+    
+
+
+</body>
+
+<script>
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarBtn = document.getElementById('openSidebarBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarContent = document.querySelector('.sidebar-content'); // Sidebar content
+
+    let isSidebarOpen = false;
+
+    openSidebarBtn.addEventListener('click', function () {
+        if (isSidebarOpen) {
+            // Close sidebar with fade-out effect
+            sidebar.classList.remove('active');
+            sidebarContent.style.opacity = '0'; // Start fading out
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        } else {
+            // Open sidebar with fade-in effect
+            sidebar.classList.add('active');
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'visible'; // Show halfway through
+                sidebarContent.style.opacity = '1'; // Start fading in
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i> Close';
+        }
+        isSidebarOpen = !isSidebarOpen;
+    });
+
+    closeSidebarBtn.addEventListener('click', function () {
+        sidebar.classList.remove('active');
+        sidebarContent.style.opacity = '0'; // Start fading out
+        setTimeout(() => {
+            sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+        }, 250); // Halfway of 0.5s transition
+
+        openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        isSidebarOpen = false;
+    });
+
+    // Countdown to Sunday at 7:30 AM
+    function updateCountdown() {
+        const now = new Date();
+        const nextSunday = new Date();
+        nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+        nextSunday.setHours(7, 30, 0, 0); // 7:30 AM
+
+        const timeDiff = nextSunday - now;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdownTimer').innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (timeDiff < 0) {
+            document.getElementById('countdownTimer').innerHTML = "Service is Live!";
+        }
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const textItems = document.querySelectorAll('.text-item');
+
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        textItems[currentSlide].classList.remove('active');
+
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+        slides[currentSlide].classList.add('active');
+        textItems[currentSlide].classList.add('active');
+    }
+
+    function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        textItems[currentSlide].classList.remove('active');
+
+        currentSlide = index;
+
+        slides[currentSlide].classList.add('active');
+        textItems[currentSlide].classList.add('active');
+    }
+
+    // Auto-slide every 7 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 10000);
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // Create an Intersection Observer to detect when the element is in view
+    const welcomeMessage = document.querySelector('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Add the class to trigger the animation when the section comes into view
+                welcomeMessage.classList.add('fade-in-from-bottom');
+                observer.unobserve(entry.target); // Stop observing after the animation
+            }
+        });
+    }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+
+    // Observe the welcome message section
+    observer.observe(welcomeMessage);
+   
+});
+
+</script>
+</script>
+
+</html>

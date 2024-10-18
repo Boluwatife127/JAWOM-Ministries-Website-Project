@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Fader</title>
+    <style>
+        @font-face {
+    font-family: "Poppins";
+    src: url("Font Folder/Poppins-Light.ttf") format("truetype");
+}
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: poppins, sans-serif;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 100%; 
+            height: 100vh; 
+            overflow: hidden; /* Hide overflow */
+        }
+
+      #hero  .slider {
+            position: relative;
+            height: 100%;
+        }
+
+       #hero .slides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s ease-in-out;
+        }
+
+      #hero  .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0; /* Initially hide all slides */
+            transition: opacity 1s ease-in-out;
+        }
+
+      #hero  .slide.active {
+            opacity: 1; /* Show active slide */
+        }
+
+       #hero button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #264653;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            z-index: 2;
+        }
+
+       #hero .prev {
+            left: 10px;
+        }
+
+        #hero .next {
+            right: 10px;
+        }
+
+        #hero .text-container {
+            position: absolute;
+            bottom: 80px; /* Positioning text at bottom */
+            left: 25px;
+            display: flex;
+            z-index: 2;
+        }
+
+       #hero  .text-item {
+            padding: 10px;
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.5; /* Initial opacity */
+            transition: opacity 0.5s ease;
+        }
+
+       #hero .text-item.active {
+            opacity: 1; /* Full visibility for active text */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container" id="hero">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active" style="background-image: url('images/it.webp');"></div>
+                <div class="slide" style="background-image: url('images/pexels-chad-kirchoff-346647-952437.jpg');"></div>
+                <div class="slide" style="background-image: url('images/pexels-jibarofoto-2774546.jpg');"></div>
+                <div class="slide" style="background-image: url('images/pexels-lstan-2147029.jpg');"></div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <div class="text-item active" style="border-top: 3px solid #264653; cursor: pointer;" onclick="goToSlide(0)">Text for Image 1</div>
+            <div class="text-item" style="border-top: 3px solid #2A9D8F; cursor: pointer;" onclick="goToSlide(1)">Text for Image 2</div>
+            <div class="text-item" style="border-top: 3px solid #E9C46A; cursor: pointer;" onclick="goToSlide(2)">Text for Image 3</div>
+            <div class="text-item" style="border-top: 3px solid #F4A261; cursor: pointer;" onclick="goToSlide(3)">Text for Image 4</div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const textItems = document.querySelectorAll('.text-item');
+
+        function changeSlide(direction) {
+            // Remove active class from current slide and text item
+            slides[currentSlide].classList.remove('active');
+            textItems[currentSlide].classList.remove('active');
+
+            // Update the current slide index
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+            // Add the active class to the new slide and text item
+            slides[currentSlide].classList.add('active');
+            textItems[currentSlide].classList.add('active');
+        }
+
+        function goToSlide(index) {
+            // Remove active class from current slide and text item
+            slides[currentSlide].classList.remove('active');
+            textItems[currentSlide].classList.remove('active');
+
+            // Update the current slide index
+            currentSlide = index;
+
+            // Add the active class to the new slide and text item
+            slides[currentSlide].classList.add('active');
+            textItems[currentSlide].classList.add('active');
+        }
+
+        // Automatic slide change every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 7000);
+
+        // Initial setup for the slider
+        document.addEventListener('DOMContentLoaded', () => {
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = 'translateX(0)'; // Start from the first slide
+        });
+    </script>
+</body>
+</html>
