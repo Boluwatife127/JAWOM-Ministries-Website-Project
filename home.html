@@ -256,7 +256,7 @@
         const now = new Date();
         const nextSunday = new Date();
         nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
-        nextSunday.setHours(7, 30, 0, 0); // 7:30 AM
+        nextSunday.setHours(10, 30, 0, 0); // 7:30 AM
 
         const timeDiff = nextSunday - now;
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));

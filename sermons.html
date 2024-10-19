@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAWOM Ministries | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/jawom logo - Copy.png" type="image/x-icon">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header style="background-color: #264653;">
+        <div class="logo">
+            <img src="images/jawom logo - Copy.png" height="60" width="70" alt="JAWOM Logo">
+            <div class="logo-text">
+                <span class="main">JAWOM</span>
+                <span class="sub">Jesus Is Life World Outreach Ministries</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a class="a" href="#"><i class="fa fa-heart" aria-hidden="true"></i>Give</a></li>
+
+                <li><a class="b" href="#"><i class="fas fa-handshake"></i>New To JAWOM</a></li>
+
+                <li><a class="c" href="#"><i class="fas fa-bible"></i>Devotional</a></li>
+            </ul>
+        </nav>
+
+        <button id="openSidebarBtn"><i class="fa fa-bars" aria-hidden="true"></i> Open</button>
+    </header>
+
+
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebarBtn">&times;</button>
+        <br>
+        <div class="sidebar-content">
+            <div class="banner">
+                Next Service Begins in:
+                <div class="countdown" id="countdownTimer">00d 00h 00m 00s</div>
+                <button>Join Us Online</button>
+            </div>
+
+
+            <div class="menu-container">
+                <ul>
+                    <li><a href="">Centers</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Sermons</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+
+                <ul>
+                    <h3>Volunteer</h3>
+                    <li>On Campus</li>
+                    <li>Local Community</li>
+                    <li>Mission Experiences</li>
+                </ul>
+
+                <ul>
+                    <h3>Connect</h3>
+
+                    <li>Prayer Day</li>
+                    <li>Youths</li>
+                    <li>Kids</li>
+                    <li>Weekly Activities</li>
+                </ul>
+            </div>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <footer>&copy; 2024 JAWOM All Rights Reserved.</footer>
+        </div>
+    </div>
+
+
+    <div class="sermon-page" id="sermon-page">
+        <h1>Recent Messages</h1>
+
+        <div class="sermons-container">
+            <div class="sermons">
+                <!-- 15 Cards -->
+                <!-- Sermon 1 -->
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ctLtsUCdOEQ" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 10th</h3>
+                        <p>Preacher: Pastor Timothy</p>
+                        <p>Topic: Faith</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: John 3:16</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/ctLtsUCdOEQ">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Sermon 2 -->
+                <!-- Sermon 3 -->
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/NboJ158aSpU" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/NboJ158aSpU">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+                <!-- Add similar blocks for other sermons with their respective video URLs -->
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/e77aYldfDU4" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/e77aYldfDU4">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/CMtR5J4XY04
+                        " frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/CMtR5J4XY04
+                        ">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/e77aYldfDU4" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/e77aYldfDU4">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/e77aYldfDU4" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/e77aYldfDU4">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/NboJ158aSpU" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/NboJ158aSpU">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/e77aYldfDU4" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3>October 24th</h3>
+                        <p>Preacher: Pastor Alex</p>
+                        <p>Topic: Grace</p>
+                        <p style="padding-bottom: 10px;">Bible Verse: Ephesians 2:8-9</p>
+
+                        <button class="watch-button" data-video-url="https://www.youtube.com/embed/e77aYldfDU4">Watch
+                            Now</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Modal for video playback -->
+            <div class="modal" id="video-modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <iframe src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+                <button class="prev">← Backward</button>
+                <button class="next">Forward →</button>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+<script>
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarBtn = document.getElementById('openSidebarBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarContent = document.querySelector('.sidebar-content'); // Sidebar content
+
+    let isSidebarOpen = false;
+
+    openSidebarBtn.addEventListener('click', function () {
+        if (isSidebarOpen) {
+            // Close sidebar with fade-out effect
+            sidebar.classList.remove('active');
+            sidebarContent.style.opacity = '0'; // Start fading out
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        } else {
+            // Open sidebar with fade-in effect
+            sidebar.classList.add('active');
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'visible'; // Show halfway through
+                sidebarContent.style.opacity = '1'; // Start fading in
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i> Close';
+        }
+        isSidebarOpen = !isSidebarOpen;
+    });
+
+    closeSidebarBtn.addEventListener('click', function () {
+        sidebar.classList.remove('active');
+        sidebarContent.style.opacity = '0'; // Start fading out
+        setTimeout(() => {
+            sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+        }, 250); // Halfway of 0.5s transition
+
+        openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        isSidebarOpen = false;
+    });
+
+    // Countdown to Sunday at 7:30 AM
+    function updateCountdown() {
+        const now = new Date();
+        const nextSunday = new Date();
+        nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+        nextSunday.setHours(10, 30, 0, 0); // 7:30 AM
+
+        const timeDiff = nextSunday - now;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdownTimer').innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (timeDiff < 0) {
+            document.getElementById('countdownTimer').innerHTML = "Service is Live!";
+        }
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sermons = document.querySelector('.sermons');
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+
+        let scrollAmount = 0;
+        const scrollStep = 400; // Distance to scroll per click
+
+        // Forward button
+        nextButton.addEventListener('click', () => {
+            scrollAmount += scrollStep;
+            sermons.style.transform = `translateX(-${scrollAmount}px)`;
+            checkScroll();
+        });
+
+        // Backward button
+        prevButton.addEventListener('click', () => {
+            scrollAmount -= scrollStep;
+            if (scrollAmount < 0) scrollAmount = 0;
+            sermons.style.transform = `translateX(-${scrollAmount}px)`;
+            checkScroll();
+        });
+
+        // Function to check scroll limits and disable buttons if necessary
+        function checkScroll() {
+            const maxScroll = sermons.scrollWidth - sermons.offsetWidth;
+            nextButton.disabled = scrollAmount >= maxScroll;
+            prevButton.disabled = scrollAmount <= 0;
+        }
+
+        // Initial check to disable back button at start
+        checkScroll();
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const watchButtons = document.querySelectorAll('.watch-button');
+        const modal = document.getElementById('video-modal');
+        const closeButton = document.querySelector('.close-button');
+        const modalIframe = modal.querySelector('iframe');
+
+        // Open modal on Watch button click
+        watchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video-url');
+                modalIframe.src = videoUrl + '?autoplay=1'; // Set video URL to iframe with autoplay
+                modal.style.display = 'flex'; // Show modal
+            });
+        });
+
+        // Close modal on Close button click
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalIframe.src = ''; // Clear the iframe source to stop the video
+        });
+
+        // Close modal when clicking outside of the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modalIframe.src = ''; // Clear the iframe source to stop the video
+            }
+        });
+    });
+
+
+
+
+
+
+
+</script>
+</script>
+
+</html>

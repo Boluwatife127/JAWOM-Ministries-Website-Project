@@ -2,6 +2,10 @@
     font-family: "Poppins";
     src: url("Font Folder/Poppins-Light.ttf") format("truetype");
 }
+@font-face {
+    font-family: "Pacifico";
+    src: url("Font Folder/Pacifico-Regular.ttf") format("truetype");
+}
 
 * {
     padding: 0;
@@ -660,3 +664,192 @@ footer {
     border: 2px solid #f39c12;
     background-color: transparent;
 }
+.sermon-page{
+    height: 100vh;
+    /* background-color: #2A9D8F; */
+    background-image: url('images/pexels-tima-miroshnichenko-6860390.jpg');
+    background-position: center;
+    background-size: cover;
+    padding-top: 80px;
+}
+.sermon-page h1{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: Pacifico;
+}
+
+/* Container for the cards */
+#sermon-page .sermons-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* The sermons cards */
+#sermon-page .sermons {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out;
+    padding-left: 50px;
+    margin-top: -17px;
+}
+
+/* Card Styling */
+.sermon-page .card {
+    width: 280px;
+    height: 400px;
+    /* background: rgba(255, 255, 255, 0.1); Glass effect */
+    border-radius: 15px;
+    display: flex;
+    background-color: #264653;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+    flex-shrink: 0;
+    opacity: 1;
+    overflow: hidden;
+    position: relative;
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Video Container */
+.video-container iframe {
+    width: 100%;
+    height: 140%; /* Adjust height as needed */
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Zoom effect on hover */
+.sermon-page .card:hover .video-container iframe {
+    transform: scale(1.015);
+}
+
+/* White shade effect */
+.sermon-page .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.sermon-page .card:hover::before {
+    opacity: 1;
+}
+
+/* Card content */
+.card-content {
+    position: absolute;
+    bottom: 13px;
+    z-index: 2;
+    font-size: 1.2rem;
+    text-align: left;
+}
+.card-content h3{
+    font-size: 1.1rem;
+    font-family: pacifico;
+    font-weight: 300;
+    text-align: left;
+    padding-left: 10px;
+}
+.card-content p{
+    font-size: 1.1rem;
+}
+
+.watch-button {
+    padding: 5px 20px;
+    border: none;
+    background-color: #C7001B;
+    font-family: poppins;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.watch-button:hover {
+    background-color: #2A9D8F;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 450px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+#sermon-page .card:first-child {
+    margin-left: 10px; /* Add space to the first card */
+}
+
+/* Navigation buttons */
+#sermon-page .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    
+}
+
+#sermon-page .navigation-buttons button {
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #264653;
+    color: white;
+    border-radius: 5px;
+    font-family: poppins;
+    box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.4);
+}
+
+#sermon-page .navigation-buttons button:hover {
+    background-color: #C7001B;
+    transition: 0.5s ease-in-out;
+    transform: scale(1.015);
+}
+
