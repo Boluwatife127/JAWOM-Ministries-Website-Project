@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church Website Footer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Import Poppins Font */
+@font-face {
+    font-family: "Poppins";
+    src: url("Font Folder/Poppins-Light.ttf") format("truetype");
+}
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+}
+
+.content {
+    flex: 1;
+}
+
+/* Footer Styles */
+#footer {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    background-color: #264653;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+/* Rotating Logo Background */
+#footer .footer-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate3D 20s infinite linear;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+#footer .footer-background img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* 3D Rotation Animation */
+@keyframes rotate3D {
+    from {
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotateY(360deg);
+    }
+}
+
+/* Footer Content Styling */
+#footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
+    z-index: 2;
+}
+
+#footer .footer-container div {
+    flex: 1;
+    padding: 20px;
+}
+
+ footer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #e9c46a;
+}
+
+#footer p {
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-align: justify;
+}
+
+/* List and Links Styling */
+#footer .footer ul {
+    list-style: none; /* Remove list markers */
+    padding-left: 0; /* No indentation */
+}
+
+#footer .footer ul li {
+    margin-bottom: 10px;
+}
+
+#footer .footer ul li a {
+    color: white;
+    text-decoration: none; /* No underline */
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+#footer .footer ul li a:hover {
+    color: #2a9d8f;
+}
+
+/* Subscribe Form */
+#footer .subscribe-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+#footer .subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: poppins;
+}
+
+#footer .subscribe-form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2a9d8f;
+    font-family: poppins;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+#footer .subscribe-form button:hover {
+    background-color: #21867a;
+}
+
+/* Footer Bottom */
+#footer .footer-bottom {
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.85rem;
+   
+    z-index: 2;
+}
+
+#footer .footer-social a {
+    margin: 0px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    text-decoration: none; /* Ensure no underline */
+}
+#footer .footer-social{
+    margin-left: -40px;
+}
+#footer .footer-social a:hover {
+    color: #2a9d8f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container div {
+        padding: 10px;
+    }
+
+    .footer-social a {
+        margin: 0 8px;
+    }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <!-- Main page content -->
+  </div>
+
+  <footer id="footer">
+    <div class="footer-background">
+      <img src="images/jawom logo - Copy.png" alt="JAWOM Logo">
+    </div>
+
+    <div class="footer-container">
+      <div>
+        <h2>About JAWOM</h2>
+        <p>Jesus Alive Word Outreach Ministries (JAWOM) has been preaching Jesus, the Life, and the Soon Coming King, for over 40 years.</p>
+      </div>
+
+      <div>
+        <h2>Quick Links</h2>
+        <ul style="margin-left: 20px;">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#sermons">Sermons</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Contact Us</h2>
+        <ul>
+          <li>123 Church Street, Zaria, Nigeria</li>
+          <li>+234 123 456 7890</li>
+          <li>info@jawom.org</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Subscribe</h2>
+        <p>Get updates directly in your inbox.</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 JAWOM. All Rights Reserved.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Target the footer element specifically
+        const footer = document.querySelector("footer");
+
+        // Remove list style for all ul and li inside the footer
+        const footerLists = footer.querySelectorAll("ul, li");
+        footerLists.forEach(item => {
+            item.style.listStyle = "none";  // Remove bullet points
+            item.style.padding = "0";       // Reset padding
+            item.style.margin = "0";        // Reset margin
+        });
+
+        // Remove text decoration from links inside the footer
+        const footerLinks = footer.querySelectorAll("a");
+        footerLinks.forEach(link => {
+            link.style.textDecoration = "none";  // Remove underline
+            link.style.color = "white";          // Default link color
+            link.style.marginLeft = "30px";          // Default link color
+
+            // Add hover effect
+            link.addEventListener("mouseover", () => {
+                link.style.color = "#2a9d8f";    // Hover color
+            });
+            link.addEventListener("mouseout", () => {
+                link.style.color = "white";      // Reset color on mouse out
+            });
+        });
+    });
+</script>
+
+
+
+
+</html>
+
+
+
+

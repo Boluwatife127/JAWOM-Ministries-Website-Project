@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.upcoming-event-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#event .upcoming-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 2rem;
+    color: #264653;
+   margin-right: 30px;
+
+}
+
+#event .cards {
+    display: flex;
+    gap: 40px;
+ justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+   
+}
+
+#event .card {
+    background-color: #11101d;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    flex: 1 1 30%;
+    cursor: pointer;
+  width: 300%;
+  height: 460px;
+  min-width: 300px;
+}
+
+#event .card:hover {
+    transform: translateY(-10px);
+}
+
+#event .image-container {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+#event .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#event .card-text {
+    padding: 15px;
+    text-align: center;
+}
+
+#event .card-text h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#event .card-text p {
+    color: white;
+    font-size: 0.9rem;
+}
+.upcoming-event-container button{
+    padding: 5px 15px;
+    font-family: poppins;
+    background-color: transparent;
+    border-radius: 5px;
+ border: 2px solid white;
+    font-size: 1rem;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #event  .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #event  .card {
+        width: 90%;
+    }
+
+    #event .upcoming-text {
+        margin-bottom: 20px;
+    }
+}       
+    </style>
+</head>
+<body>
+    <div class="upcoming-event-container" id="event">
+        <div class="upcoming-text" style="margin-top: 40px;"> Upcoming Events In 2024</div>
+        <div class="cards">
+            <div class="card">
+                <div class="image-container">
+                    <img src="images/pexels-brett-sayles-3633711.jpg" alt="The Masters Convention">
+                </div>
+                <div class="card-text">
+                    <h3>The Masters Convention 2024</h3>
+                    <p>Date: January 5, 2024</p>
+                    <p>Join us for an inspiring convention.</p>
+                    <button>More Info</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-container">
+                    <img src="images/pexels-caleboquendo-15689008.jpg" alt="Happy Birthday Jesus">
+                </div>
+                <div class="card-text">
+                    <h3>Happy Birthday Jesus</h3>
+                    <p>Date: December 25, 2024</p>
+                    <p>Celebrating the birth of Christ.</p>
+                    <button>More Info</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-container">
+                    <img src="images/pexels-joshsorenson-976866 (1).jpg" alt="Cross Over Night Vigil">
+                </div>
+                <div class="card-text">
+                    <h3>Cross Over Night Vigil</h3>
+                    <p>Date: December 31, 2024</p>
+                    <p>Ushering in the new year with prayer.</p>
+                    <button>More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

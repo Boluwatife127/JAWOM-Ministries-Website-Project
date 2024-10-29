@@ -7,6 +7,32 @@
     src: url("Font Folder/Pacifico-Regular.ttf") format("truetype");
 }
 
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;                /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #11101d;        /* Track background */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: whitesmoke;  /* Thumb (scroll) color */
+    border-radius: 10px;         /* Rounded corners */
+    /* Adds space around the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #21867a;  /* Darker on hover */
+  }
+  
+  /* Smooth Scrolling Effect */
+  html {
+    scroll-behavior: smooth;    /* Smooth transition while scrolling */
+  }
+  
+
 * {
     padding: 0;
     margin: 0;
@@ -15,28 +41,43 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f5f5f5; /* Light gray background for the body */
+    background-color: #11101d; 
+    background:  url('images/pexels-jibarofoto-2774546\ -\ Copy.jpg');
+   
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover;/* Light gray background for the body */
 }
 
 header {
     display: flex;
     justify-content: space-between;
+    z-index: +999999 !important;
     align-items: center;
-    background-color: transparent; /* Dark Teal for the header */
+  position: relative;
+    background: #264653 !important; /* Dark Teal for the header */
     padding: 10px 10px;
-    border-radius: 8px;
-    transition: background-color 0.5s ease-in-out;
-    position: fixed; /* Keeps header fixed at the top */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+   
+  
+/* Keeps header fixed at the top */
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensures it stays on top of other elements */
+    /* Ensures it stays on top of other elements */
+}
+#header{
+    z-index: +999;
+    background: #264653;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    color: #E9C46A; /* Yellow for logo text */
+    color: #E9C46A;
+    z-index: +9999999; /* Yellow for logo text */
 }
 
 .logo img {
@@ -51,7 +92,7 @@ header {
 }
 
 .logo-text .main {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
 }
 
@@ -64,11 +105,13 @@ nav ul {
     display: flex;
     list-style: none;
     margin-left: -80px;
+    z-index: +9999999;
 }
 
 nav ul li {
     margin-left: 50px;
     position: relative;
+    z-index: +9999999;
 }
 
 nav ul li a {
@@ -77,9 +120,10 @@ nav ul li a {
     color: #fff; /* Yellow for navigation links */
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     transition: color 0.3s ease;
+    z-index: +9999999;
 }
 
 nav ul li  .a:hover {
@@ -112,10 +156,12 @@ header button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    z-index: +9999999;
 }
 
 header button:hover {
-    background-color: #C7001B; /* Darker red on hover */
+    background-color: #C7001B;
+    /* z-index: +9999999; Darker red on hover */
 }
 header button i{
     margin-right: 3px;
@@ -270,12 +316,18 @@ footer {
     position: relative;
     max-width: 100%; 
     height: 100vh; 
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden;
+    margin-top: -75px;
+    z-index: 1;
+   /* Hide overflow */
 }
 
 #hero  .slider {
     position: relative;
     height: 100%;
+    
+  
+ 
 }
 
 #hero .slides {
@@ -283,6 +335,8 @@ footer {
     width: 100%;
     height: 100%;
     transition: opacity 1s ease-in-out;
+    
+
 }
 
 #hero  .slide {
@@ -293,12 +347,14 @@ footer {
     background-position: center;
     opacity: 0; /* Initially hide all slides */
     transition: opacity 1s ease-in-out;
+   
+   
 }
 
 #hero  .slide.active {
     opacity: 1; /* Show active slide */
 }
-.overlay {
+.overlay{
     position: absolute;
     top: 0;
     left: 0;
@@ -313,7 +369,7 @@ footer {
     top: 37%;
     left: 120px;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: +1;
     color: white;
     text-align: left;
 }
@@ -321,15 +377,23 @@ footer {
 .slide-content h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+
+    z-index: +1;
+  
 }
 .slide-content p{
     font-size: 1.9rem;
     margin-top: -15px;
+    z-index: +1;
+  
    
 }
 .slide-content .button{
     background-color: #2A9D8F;
     text-align: center;
+    z-index: +99999999999;
+
+
     border-radius: 5px;
     padding: 6px;
     border: 2px solid #2A9D8F;
@@ -439,12 +503,13 @@ footer {
 }
 .welcome-message {
     background-color: #264653;
+    background-attachment: fixed;
     color: white;
     height: 100vh;
     margin: 0;
     display: flex;
     justify-content: space-between;
-    padding: 120px 100px 80px;
+    padding: 90px 100px 80px;
     gap: 100px;
 }
 .card{
@@ -463,11 +528,12 @@ footer {
 .welcome-message h1 {
     font-size: 2rem;
     text-align: center;
+    color: #E9c46a;
 }
 
 .welcome-message p {
-    font-size: 1.2rem;
-    line-height: 2.4rem;
+    font-size: 1rem;
+    line-height: 2rem;
     text-align: justify;
 }
 .welcome-message .card{
@@ -545,6 +611,7 @@ footer {
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     color: white;
+    margin-top: 20px;
     border: none;
 }
 
@@ -567,15 +634,13 @@ footer {
 .sermon-section {
     height: 100vh;
     position: relative;
-    background-image: url('images/pexels-mark-david-cinense-1809381292-28960174.jpg');
-    background-position: center;
-    background-size: cover;
+  background: transparent;
     display: flex;
     justify-content: space-between;
     gap: 50px;
     color: white;
     font-size: 1.2rem;
-    padding: 90px 80px ;
+    padding: 60px 80px 110px ;
 }
 
 .sermon-section::after {
@@ -586,20 +651,20 @@ footer {
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    z-index: 1;
+     z-index: 1;
     transition: opacity 0.5s ease-in-out;
     opacity: 1;
-}
+} 
 
 .sermon-section:hover::after {
     opacity: 0.9;
-}
+} 
 
 /* Ensure the content stays on top of the gradient */
 .sermon-section > * {
     position: relative;
     z-index: 2;
-}
+} 
 
 
 .sermon-section img {
@@ -631,10 +696,14 @@ footer {
     font-size: 1.2rem;
     color: white;
 }
+.sermon-section h3 {
+    color: #E9c46a;
+}
 
 .sermon-section .text p {
     text-align: justify;
     padding-top: 10px;
+    font-size: 0.98rem;
 }
 
 .button-container {
@@ -647,209 +716,509 @@ footer {
 }
 
 .sermon-section button {
-    width: 100%; /* Adjust width as needed */
+    width: 50%; /* Adjust width as needed */
     padding: 15px;
-    color: white;
-    background-color: #264653;
-    border: 2px solid #264653;
+    color: #264653;
+    background-color: #e9c46a;
     font-size: 1.2rem;
     font-family: Poppins, sans-serif;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition:  0.5s ease;
     font-weight: bold;
     box-shadow: 10px 10px 10px #030f13;
 }
 
 .sermon-section button:hover {
-    border: 2px solid #f39c12;
     background-color: transparent;
-}
-.sermon-page{
-    height: 100vh;
-    /* background-color: #2A9D8F; */
-    background-image: url('images/pexels-tima-miroshnichenko-6860390.jpg');
-    background-position: center;
-    background-size: cover;
-    padding-top: 80px;
-}
-.sermon-page h1{
     color: white;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 300;
-    font-family: Pacifico;
+    border: 1px solid #fff;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-/* Container for the cards */
-#sermon-page .sermons-container {
-    width: 100%;
-    overflow: hidden;
+
+
+
+/* Footer Styles */
+#footer {
     position: relative;
-    padding: 20px;
-}
-
-/* The sermons cards */
-#sermon-page .sermons {
-    display: flex;
-    gap: 10px;
-    transition: transform 0.3s ease-in-out;
-    padding-left: 50px;
-    margin-top: -17px;
-}
-
-/* Card Styling */
-.sermon-page .card {
-    width: 280px;
-    height: 400px;
-    /* background: rgba(255, 255, 255, 0.1); Glass effect */
-    border-radius: 15px;
-    display: flex;
+    width: 100%;
+    height: 330px;
     background-color: #264653;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
     color: white;
-    margin-left: 10px;
-    flex-shrink: 0;
-    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
     overflow: hidden;
-    position: relative;
-    /* backdrop-filter: blur(10px); */
-    box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+    bottom: 0;
 }
 
-/* Video Container */
-.video-container iframe {
-    width: 100%;
-    height: 140%; /* Adjust height as needed */
-    object-fit: cover;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-/* Zoom effect on hover */
-.sermon-page .card:hover .video-container iframe {
-    transform: scale(1.015);
-}
-
-/* White shade effect */
-.sermon-page .card::before {
-    content: "";
+/* Rotating Logo Background */
+#footer .footer-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-   
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate3D 20s infinite linear;
+    opacity: 0.3;
     z-index: 1;
 }
 
-.sermon-page .card:hover::before {
-    opacity: 1;
+#footer .footer-background img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
 }
 
-/* Card content */
-.card-content {
-    position: absolute;
-    bottom: 13px;
+/* 3D Rotation Animation */
+@keyframes rotate3D {
+    from {
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotateY(360deg);
+    }
+}
+
+/* Footer Content Styling */
+#footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
     z-index: 2;
-    font-size: 1.2rem;
-    text-align: left;
-}
-.card-content h3{
-    font-size: 1.1rem;
-    font-family: pacifico;
-    font-weight: 300;
-    text-align: left;
-    padding-left: 10px;
-}
-.card-content p{
-    font-size: 1.1rem;
 }
 
-.watch-button {
-    padding: 5px 20px;
-    border: none;
-    background-color: #C7001B;
-    font-family: poppins;
-    font-size: 1.1rem;
+#footer .footer-container div {
+    flex: 1;
+    padding: 20px;
+}
+
+ footer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #e9c46a;
+}
+
+#footer p {
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-align: justify;
+}
+
+/* List and Links Styling */
+#footer .footer ul {
+    list-style: none; /* Remove list markers */
+    padding-left: 0; /* No indentation */
+}
+
+#footer .footer ul li {
+    margin-bottom: 10px;
+}
+
+#footer .footer ul li a {
     color: white;
+    text-decoration: none; /* No underline */
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+#footer .footer ul li a:hover {
+    color: #2a9d8f;
+}
+
+/* Subscribe Form */
+#footer .subscribe-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+#footer .subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: poppins;
+}
+
+#footer .subscribe-form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2a9d8f;
+    font-family: poppins;
+    color: white;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 0.9rem;
 }
 
-.watch-button:hover {
-    background-color: #2A9D8F;
+#footer .subscribe-form button:hover {
+    background-color: #21867a;
 }
 
-/* Modal Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
+/* Footer Bottom */
+#footer .footer-bottom {
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.85rem;
+   
+    z-index: 2;
+}
+
+#footer .footer-social a {
+    margin: 0px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    text-decoration: none; /* Ensure no underline */
+}
+
+#footer .footer-social a:hover {
+    color: #2a9d8f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container div {
+        padding: 10px;
+    }
+
+    .footer-social a {
+        margin: 0 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Events Section */
+/* Reset for consistency */
+
+
+.upcoming-event-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    justify-content: center;
+    background: #264653;
+    flex-wrap: wrap;
+    /* background-color: #4bd1c2; */
+    height: 100vh;
+    padding-top: 90px;
+}
+
+#event .upcoming-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 2rem;
+    color: #e9c46a;
+   margin-right: 30px;
+
+}
+
+#event .cards {
+    display: flex;
+    gap: 40px;
+ justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+   
+}
+
+#event .cardi {
+    background-color: #2a9d8f;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    flex: 1 1 30%;
+    cursor: pointer;
+  width: 300%;
+  height: 460px;
+  
+  min-width: 300px;
+}
+
+#event .cardi:hover {
+    transform: translateY(-10px);
+}
+
+#event .image-container {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+#event .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#event .card-text {
+    padding: 15px;
+    text-align: center;
+}
+
+#event .card-text h3 {
+    color: #e9c46a;
+    margin-bottom: 10px;
+}
+
+#event .card-text p {
+    color: white;
+    font-size: 0.9rem;
+}
+.upcoming-event-container button{
+    padding: 5px 15px;
+    font-family: poppins;
+    background-color: transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+ border: 1px solid white;
+    font-size: 1rem;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #event  .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #event  .card {
+        width: 90%;
+    }
+
+    #event .upcoming-text {
+        margin-bottom: 20px;
+    }
+}       
+
+.new-jawom{
+    height: 100vh;
+    background: transparent;
+}
+#newComer{
+ background: transparent;
+ 
+}
+/* New to JAWOM Section */
+#new-to-jawom {
+    display: flex;
+    gap: 4rem;
+    padding: 4rem;
+    background-color: transparent; /* Dark teal background */
+    color: #f4f4f9; /* Light text color */
+}
+
+#new-to-jawom .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-column h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #e9c46a; /* Accent color for heading */
+}
+
+.text-column p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.video-column .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.video-column .video-container iframe {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 10;
-    justify-content: center;
-    align-items: center;
+    border-radius: 8px;
 }
 
-.modal-content {
-    width: 80%;
-    max-width: 800px;
+.contact-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #264653;
+    background-color: #e9c46a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    font-family: poppins;
+}
+
+.contact-btn:hover {
+    background-color: #f4a261; /* Lighter accent on hover */
+}
+
+
+
+.testimonies{
+    background-color: #264653;
+    height: 90vh;
+}
+
+
+/* Testimonies Section */
+#testimonies {
+    text-align: center;
+    padding: 2rem;
+    background-color: #264653; /* Dark teal background */
+    color: #f4f4f9; /* Light text color */
+}
+
+#testimonies h2 {
+    font-size: 2rem;
+    color: #E9c46a; /* Accent color for heading */
+}
+
+#testimonies p {
+    margin-bottom: 2rem;
+}
+
+/* Testimony Container */
+.testimony-container {
+    overflow: hidden;
+    max-width: 80%;
+    margin: 0 auto;
     position: relative;
 }
 
-.modal-content iframe {
-    width: 100%;
-    height: 450px;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-}
-
-
-#sermon-page .card:first-child {
-    margin-left: 10px; /* Add space to the first card */
-}
-
-/* Navigation buttons */
-#sermon-page .navigation-buttons {
+.testimony-slider {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 15px;
-    
+    transition: transform 0.5s ease;
 }
 
-#sermon-page .navigation-buttons button {
-    padding: 8px 20px;
-    font-size: 1rem;
+/* Testimony Cards */
+.cardii {
+    min-width: 30%;
+    margin: 0 1rem;
+    padding: 2rem 1rem 0 1rem;
+    background-color: #2a9d8f; /* Teal card background */
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
     cursor: pointer;
-    border: none;
-    background-color: #264653;
-    color: white;
-    border-radius: 5px;
-    font-family: poppins;
-    box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.4);
 }
-
-#sermon-page .navigation-buttons button:hover {
-    background-color: #C7001B;
+.cardii:hover{
+    transform: scale(1.03);
     transition: 0.5s ease-in-out;
-    transform: scale(1.015);
+   
+}
+.cardii .testimony {
+    font-style: italic;
+    color: #f4f4f9; /* Light text color */
+    margin-bottom: 1rem;
 }
 
+.cardii .author {
+    text-align: right;
+    font-weight: bold;
+    color: #e9c46a; /* Accent color for author */
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    margin-top: 1rem;
+}
+
+.nav-buttons button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #264653;
+    background-color: #e9c46a; /* Teal button color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1rem 0.5rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    font-family: poppins;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #f4a261; /* Lighter accent on hover */
+}
+
+
+#view{
+    height: 100vh;
+    padding: 10px 40px 10px;
+    background: transparent;
+}
+
+#view .iframe-container {
+    position: relative;
+    width: 100%;
+    height: 570px;
+    overflow: hidden;
+    margin: 20px 0;
+    background-color: #264653; /* Match the church theme */
+    border-radius: 10px; /* Rounded corners for aesthetic */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#view h2 {
+    text-align: center;
+    top: 20px;
+    left: 20px;
+    padding-top: 10px 0px;
+    color: white; /* Text color for visibility */
+    font-size: 24px;
+    z-index: 10; /* Ensure it is above the iframe */
+}
+
+#view iframe {
+    width: 100%;
+    height: 90%;
+    border: none; /* Remove border for a cleaner look */
+}

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAWOM | We Are Live</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/jawom logo - Copy.png" type="image/x-icon">
+ 
+    <style>
+
+
+
+@font-face {
+    font-family: "Poppins";
+    src: url("Font Folder/Poppins-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pacifico";
+    src: url("Font Folder/Pacifico-Regular.ttf") format("truetype");
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;                /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #11101d;        /* Track background */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: whitesmoke;  /* Thumb (scroll) color */
+    border-radius: 10px;         /* Rounded corners */
+    /* Adds space around the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #21867a;  /* Darker on hover */
+  }
+  
+  /* Smooth Scrolling Effect */
+  html {
+    scroll-behavior: smooth;    /* Smooth transition while scrolling */
+  }
+  
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #11101d; 
+    background:  url('images/pexels-jibarofoto-2774546\ -\ Copy.jpg');
+  
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover;/* Light gray background for the body */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    z-index: +999999 !important;
+    align-items: center;
+  position: relative;
+    background: #264653 !important; /* Dark Teal for the header */
+    padding: 10px 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+   
+  
+/* Keeps header fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Ensures it stays on top of other elements */
+}
+#header{
+    z-index: +999;
+    background: #264653;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #E9C46A;
+    z-index: +9999999; /* Yellow for logo text */
+}
+
+.logo img {
+    margin-right: 15px;
+    border-radius: 50%; /* Rounded logo for style */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-text .main {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo-text .sub {
+    font-size: 15px;
+    color: #f0f0f0; /* Lighter text for subtitle */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin-left: -80px;
+    z-index: +9999999;
+}
+
+nav ul li {
+    margin-left: 50px;
+    position: relative;
+    z-index: +9999999;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff; /* Yellow for navigation links */
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    z-index: +9999999;
+}
+
+nav ul li  .a:hover {
+    color: red; /* Coral for hover effect */
+    transform: scale(1.015);
+    transition: 0.5s ease-in-out;
+}
+nav ul li .b:hover {
+    color: #4bd1c2;
+    transform: scale(1.015);
+    transition: 0.5s ease-in-out;
+}
+nav ul li  .c:hover {
+    color:#E9C46A;
+    transform: scale(1.015);
+    transition: 0.5s ease-in-out;
+}
+
+nav ul li i {
+    margin-right: 8px;
+}
+
+header button {
+    background-color: #E76F51; /* Light Red button for emphasis */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: poppins;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    z-index: +9999999;
+}
+
+header button:hover {
+    background-color: #C7001B;
+    /* z-index: +9999999; Darker red on hover */
+}
+header button i{
+    margin-right: 3px;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    button {
+        align-self: flex-end;
+    }
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 999;
+}
+.sidebar-content{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    visibility: hidden; /* Make it hidden until halfway */
+  
+}
+
+.sidebar.active {
+    width: 100%;
+}
+
+#closeSidebarBtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Banner styles */
+.banner {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+.banner button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #f1c40f;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Aligning the lists in a row */
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.menu-container ul {
+    list-style-type: none;
+    color: white;
+    width: 300px;
+}
+
+.menu-container ul h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #4bd1c2;
+}
+
+.menu-container ul li {
+    padding: 5px 0;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+.menu-container ul li:hover{
+   transform: scale(1.02);
+   transition: 0.5S ease-in-out;
+   color: #f39c12;
+}
+.menu-container ul li a{
+    text-decoration: none;
+    color: #f1c40f;
+}
+
+/* Social icons */
+.social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.social i {
+    font-size: 24px;
+    color: white;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.social i:hover{
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    color: #f39c12;
+}
+
+/* Footer styles */
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+/* Countdown timer */
+.countdown {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #f39c12;
+}
+
+
+#live .iframe-container {
+    position: relative;
+    width: 100%;
+    padding: 0 20px 0;
+    height: 495px;
+    overflow: hidden;
+    margin: 20px 0;
+ 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+#live iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove border for a cleaner look */
+    border-radius: 10px; /* Match the church theme */
+    border-radius: 10px; /* Rounded corners for aesthetic */
+}
+.info-live{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.info-live p{
+    color: white;
+    font-size: 1.1rem;
+    background: #E76F51;
+    text-align: center;
+     padding: 5px 20px;
+    position: fixed;
+    bottom: 0;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <header id="header" style="background: #264653;">
+        <div class="logo">
+            <img src="images/jawom logo - Copy.png" height="55" width="65" alt="JAWOM Logo">
+            <div class="logo-text">
+                <span class="main">JAWOM</span>
+                <span class="sub">Jesus Is Life World Outreach Ministries</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a class="a" href="#"><i class="fa fa-heart" aria-hidden="true"></i>Give</a></li>
+
+                <li><a class="b" href="home.html"><i class="fas fa-handshake"></i>Home</a></li>
+
+                <li><a class="c" href="#"><i class="fas fa-bible"></i>Devotional</a></li>
+            </ul>
+        </nav>
+
+        <button id="openSidebarBtn"><i class="fa fa-bars" aria-hidden="true"></i> Open</button>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebarBtn">&times;</button>
+        <br>
+        <div class="sidebar-content">
+            <div class="banner">
+                Next Service Begins in:
+                <div class="countdown" id="countdownTimer">00d 00h 00m 00s</div>
+                <button>Join Us Online</button>
+            </div>
+
+
+            <div class="menu-container">
+                <ul>
+                    <li><a href="">Centers</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Sermons</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+
+                <ul>
+                    <h3>Volunteer</h3>
+                    <li>On Campus</li>
+                    <li>Local Community</li>
+                    <li>Mission Experiences</li>
+                </ul>
+
+                <ul>
+                    <h3>Connect</h3>
+
+                    <li>Prayer Day</li>
+                    <li>Youths</li>
+                    <li>Kids</li>
+                    <li>Weekly Activities</li>
+                </ul>
+            </div>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <footer>&copy; 2024 JAWOM All Rights Reserved.</footer>
+        </div>
+    </div>
+
+
+
+    <div class="live" id="live">
+        <div class="iframe-container">
+          
+            <iframe src="https://www.youtube.com/embed/CMtR5J4XY04" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+
+
+    <div class="info-live">
+ <p>We are Live !</p> 
+    </div>
+
+
+</body>
+<script>
+    
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarBtn = document.getElementById('openSidebarBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarContent = document.querySelector('.sidebar-content'); // Sidebar content
+
+    let isSidebarOpen = false;
+
+    openSidebarBtn.addEventListener('click', function () {
+        if (isSidebarOpen) {
+            // Close sidebar with fade-out effect
+            sidebar.classList.remove('active');
+            sidebarContent.style.opacity = '0'; // Start fading out
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        } else {
+            // Open sidebar with fade-in effect
+            sidebar.classList.add('active');
+            setTimeout(() => {
+                sidebarContent.style.visibility = 'visible'; // Show halfway through
+                sidebarContent.style.opacity = '1'; // Start fading in
+            }, 250); // Halfway of 0.5s transition
+
+            openSidebarBtn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i> Close';
+        }
+        isSidebarOpen = !isSidebarOpen;
+    });
+
+    closeSidebarBtn.addEventListener('click', function () {
+        sidebar.classList.remove('active');
+        sidebarContent.style.opacity = '0'; // Start fading out
+        setTimeout(() => {
+            sidebarContent.style.visibility = 'hidden'; // Hide halfway through
+        }, 250); // Halfway of 0.5s transition
+
+        openSidebarBtn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        isSidebarOpen = false;
+    });
+
+    // Countdown to Sunday at 7:30 AM
+    function updateCountdown() {
+        const now = new Date();
+        const nextSunday = new Date();
+        nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+        nextSunday.setHours(10, 30, 0, 0); // 7:30 AM
+
+        const timeDiff = nextSunday - now;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdownTimer').innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (timeDiff < 0) {
+            document.getElementById('countdownTimer').innerHTML = "Service is Live!";
+        }
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+
+
+</script>
+</html>

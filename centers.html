@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Map with OpenStreetMap</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    /* Left Column: Location List */
+    .left-column {
+      width: 370px;
+      background-color: #2b2d42;
+      color: white;
+      padding: 15px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .left-column h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .address-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .address-list li {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #3a3d57;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .address-list li:hover {
+      background-color: #50577a;
+    }
+
+    /* Right Column: Map */
+    .right-column {
+      flex-grow: 1;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="left-column">
+    <h2>Locations</h2>
+    <ul class="address-list">
+      <li onclick="panToLocation(6.5244, 3.3792)">Lagos, Nigeria</li>
+      <li onclick="panToLocation(40.7128, -74.0060)">New York, USA</li>
+      <li onclick="panToLocation(51.5074, -0.1278)">London, UK</li>
+      <li onclick="panToLocation(35.6895, 139.6917)">Tokyo, Japan</li>
+      <li onclick="panToLocation(-33.8688, 151.2093)">Sydney, Australia</li>
+    </ul>
+  </div>
+
+  <div class="right-column">
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map centered on Lagos, Nigeria
+    const map = L.map('map').setView([6.5244, 3.3792], 5);
+
+    // Load and display OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add markers for locations
+    const locations = [
+      { lat: 6.5244, lng: 3.3792, name: "Lagos" },
+      { lat: 40.7128, lng: -74.0060, name: "New York" },
+      { lat: 51.5074, lng: -0.1278, name: "London" },
+      { lat: 35.6895, lng: 139.6917, name: "Tokyo" },
+      { lat: -33.8688, lng: 151.2093, name: "Sydney" },
+    ];
+
+    locations.forEach((location) => {
+      L.marker([location.lat, location.lng]).addTo(map)
+        .bindPopup(`<b>${location.name}</b>`)
+        .openPopup();
+    });
+
+    // Function to pan to selected location
+    function panToLocation(lat, lng) {
+      map.setView([lat, lng], 10);
+    }
+  </script>
+
+</body>
+</html>
