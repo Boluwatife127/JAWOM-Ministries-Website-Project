@@ -1,197 +1,1154 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Church Archive</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f5f5f5;
-      color: #333;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAWOM | Service Archives</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="images/jawom logo - Copy.png"
+      type="image/x-icon"
+    />
+    <style>
+      /* Global Styles */
+      @font-face {
+        font-family: "Poppins";
+        src: url("Font Folder/Poppins-Light.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Pacifico";
+        src: url("Font Folder/Pacifico-Regular.ttf") format("truetype");
+      }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+      /* Custom Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+      }
 
-    .filter-container {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
+      ::-webkit-scrollbar-track {
+        background: #0c191e; /* Track background */
+      }
 
-    .filter-container select, 
-    .filter-container input[type="search"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+      ::-webkit-scrollbar-thumb {
+        background-color: whitesmoke; /* Thumb (scroll) color */
+        border-radius: 10px; /* Rounded corners */
+        /* Adds space around the thumb */
+      }
 
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #21867a; /* Darker on hover */
+      }
 
-    .card {
-      width: 400px;
-      height: 300px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
+      /* Smooth Scrolling Effect */
+      html {
+        scroll-behavior: smooth; /* Smooth transition while scrolling */
+      }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-    .card-image {
-      height: 200px;
-      background-color: #4a90e2; /* Placeholder color */
-      width: 100%;
-    }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #11101d;
+        background: url("images/pexels-jibarofoto-2774546\ -\ Copy.jpg");
 
-    .card-content {
-      padding: 10px;
-    }
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        background-size: cover; /* Light gray background for the body */
+      }
 
-    .card-content h3 {
-      margin: 0;
-      font-size: 18px;
-    }
+      header {
+        display: flex;
+        justify-content: space-between;
+        z-index: +999999 !important;
+        align-items: center;
+        position: fixed;
+        background: #264653 !important; /* Dark Teal for the header */
+        padding: 10px 10px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
 
-    .load-more {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background-color: #4a90e2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        /* Keeps header fixed at the top */
+        top: 0;
+        left: 0;
+        right: 0;
+        /* Ensures it stays on top of other elements */
+      }
+      #header {
+        z-index: +999;
+        background: #264653;
+      }
 
-    .load-more:hover {
-      background-color: #357ABD;
-    }
+      .logo {
+        display: flex;
+        align-items: center;
+        color: #e9c46a;
+        z-index: +9999999; /* Yellow for logo text */
+      }
 
-    @media (max-width: 768px) {
-      .card {
+      .logo img {
+        margin-right: 15px;
+        border-radius: 50%; /* Rounded logo for style */
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .logo-text .main {
+        font-size: 23px;
+        font-weight: bold;
+      }
+
+      .logo-text .sub {
+        font-size: 15px;
+        color: #f0f0f0; /* Lighter text for subtitle */
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin-left: -80px;
+        z-index: +9999999;
+      }
+
+      nav ul li {
+        margin-left: 50px;
+        position: relative;
+        z-index: +9999999;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff; /* Yellow for navigation links */
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        z-index: +9999999;
+      }
+
+      nav ul li .a:hover {
+        color: red; /* Coral for hover effect */
+        transform: scale(1.015);
+        transition: 0.5s ease-in-out;
+      }
+      nav ul li .b:hover {
+        color: #4bd1c2;
+        transform: scale(1.015);
+        transition: 0.5s ease-in-out;
+      }
+      nav ul li .c:hover {
+        color: #e9c46a;
+        transform: scale(1.015);
+        transition: 0.5s ease-in-out;
+      }
+
+      nav ul li i {
+        margin-right: 8px;
+      }
+
+      header button {
+        background-color: #e76f51; /* Light Red button for emphasis */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: poppins;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        z-index: +9999999;
+      }
+
+      header button:hover {
+        background-color: #c7001b;
+        /* z-index: +9999999; Darker red on hover */
+      }
+      header button i {
+        margin-right: 3px;
+      }
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 10px;
+        }
+
+        nav ul li {
+          margin-left: 0;
+          margin-bottom: 10px;
+        }
+
+        button {
+          align-self: flex-end;
+        }
+      }
+
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 999;
+      }
+      .sidebar-content {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        visibility: hidden; /* Make it hidden until halfway */
+      }
+
+      .sidebar.active {
         width: 100%;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <h1>Church Archive</h1>
-
-  <div class="filter-container">
-    <input type="search" id="search-input" placeholder="Search services...">
-    <select id="minister-filter">
-      <option value="">Filter by Minister</option>
-      <option value="bishop-david-bakare">Bishop David Bakare</option>
-      <option value="rev-miss-bakare">Rev Miss Bakare</option>
-      <option value="pst-timothy">Pst Timothy</option>
-      <option value="pst-ogbonaya">Pst Ogbonaya</option>
-    </select>
-    <select id="year-filter">
-      <option value="">Filter by Year</option>
-      <option value="2023">2023</option>
-      <option value="2022">2022</option>
-      <option value="2021">2021</option>
-      <option value="2020">2020</option>
-    </select>
-  </div>
-
-  <div class="card-container" id="card-container">
-    <!-- Cards will be generated here -->
-  </div>
-
-  <button class="load-more" id="load-more">Load More</button>
-
-  <script>
-    const cardContainer = document.getElementById('card-container');
-    const loadMoreButton = document.getElementById('load-more');
-    const searchInput = document.getElementById('search-input');
-    const ministerFilter = document.getElementById('minister-filter');
-    const yearFilter = document.getElementById('year-filter');
-
-    // Data for cards
-    const cardsData = Array.from({ length: 50 }, (_, i) => ({
-      title: `Service ${i + 1}`,
-      minister: ['bishop-david-bakare', 'rev-miss-bakare', 'pst-timothy', 'pst-ogbonaya'][i % 4],
-      year: 2020 + (i % 4),
-    }));
-
-    let cardsShown = 9; // Initial number of cards shown
-
-    // Function to generate card HTML
-    function generateCardHTML(card) {
-      return `
-        <div class="card" data-minister="${card.minister}" data-year="${card.year}">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3>${card.title}</h3>
-            <p>Minister: ${card.minister.replace('-', ' ')}</p>
-            <p>Year: ${card.year}</p>
-          </div>
-        </div>
-      `;
-    }
-
-    // Function to render cards
-    function renderCards() {
-      cardContainer.innerHTML = cardsData
-        .slice(0, cardsShown)
-        .map(generateCardHTML)
-        .join('');
-    }
-
-    // Initial render
-    renderCards();
-
-    // Load more functionality
-    loadMoreButton.addEventListener('click', () => {
-      cardsShown += 9;
-      if (cardsShown >= cardsData.length) {
-        loadMoreButton.style.display = 'none';
+      #closeSidebarBtn {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 36px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
       }
-      renderCards();
-    });
 
-    // Filter and search functionality
-    function filterAndSearchCards() {
-      const searchValue = searchInput.value.toLowerCase();
-      const selectedMinister = ministerFilter.value;
-      const selectedYear = yearFilter.value;
+      /* Banner styles */
+      .banner {
+        color: white;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 24px;
+      }
 
-      const filteredCards = cardsData.filter(card => {
-        const matchesSearch = card.title.toLowerCase().includes(searchValue);
-        const matchesMinister = selectedMinister ? card.minister === selectedMinister : true;
-        const matchesYear = selectedYear ? card.year == selectedYear : true;
-        return matchesSearch && matchesMinister && matchesYear;
+      .banner button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        font-size: 18px;
+        background-color: #f1c40f;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Aligning the lists in a row */
+      .menu-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0;
+      }
+
+      .menu-container ul {
+        list-style-type: none;
+        color: white;
+        width: 300px;
+      }
+
+      .menu-container ul h3 {
+        margin-bottom: 10px;
+        text-align: center;
+        cursor: pointer;
+        color: #4bd1c2;
+      }
+
+      .menu-container ul li {
+        padding: 5px 0;
+        text-align: center;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .menu-container ul li:hover {
+        transform: scale(1.02);
+        transition: 0.5s ease-in-out;
+        color: #f39c12;
+      }
+      .menu-container ul li a {
+        text-decoration: none;
+        color: #f1c40f;
+      }
+
+      /* Social icons */
+      .social {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .social i {
+        font-size: 24px;
+        color: white;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      .social i:hover {
+        transform: scale(1.2);
+        transition: 0.5s ease-in-out;
+        color: #f39c12;
+      }
+
+      /* Footer styles */
+      footer {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+
+      /* Countdown timer */
+      .countdown {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #f39c12;
+      }
+
+      .slider-container {
+        position: relative;
+        max-width: 100%;
+        height: 100vh;
+        overflow: hidden;
+
+        z-index: 1;
+        /* Hide overflow */
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 120px 0 20px 0;
+        color: #e9c46a;
+        text-align: center;
+      }
+
+      /* Search Bar */
+    
+      /* Search Bar Styling */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.search-input {
+  padding: 10px 40px 10px 20px; /* Extra padding on the right for icon */
+  width: 400px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  border-color: #2a9d8f; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(42, 157, 143, 0.3);
+}
+
+/* Search Icon Styling */
+.search-bar .fa-search {
+  position: relative;
+  right: 40px ;
+  font-size: 16px;
+  color: #264653; /* Customize icon color */
+}
+
+/* Month Filter Styling */
+
+.month-filter {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  font-family: poppins;
+ overflow-y: auto;
+}
+.month-filter::-webkit-scrollbar{
+  display: none;
+}
+
+.month-filter:focus {
+  border-color: #2a9d8f;
+  box-shadow: 0 0 5px rgba(42, 157, 143, 0.3);
+ overflow-y: auto ;
+}
+
+
+
+
+      .search-input {
+        padding: 10px;
+        width: 800px;
+        font-size: 1.1rem;
+        border: none;
+        font-family: poppins;
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      /* Cards Container */
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        width: 100%;
+        align-items: center;
+        margin-left: -40px;
+      }
+
+      .card {
+        background-color: #264653;
+        color: #fff;
+        padding: 0 0 20px 0;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        position: relative;
+        width: 400px;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .iframe-placeholder {
+        width: 100%;
+        height: 170px;
+        background-color: #e9e9e9;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .service-topic {
+        font-size: 1.2rem;
+        color: #e9c46a;
+        margin-bottom: 8px;
+      }
+
+      .service-minister {
+        font-size: 1rem;
+        color: #f4a261;
+        margin-bottom: 5px;
+      }
+
+      .service-date {
+        font-size: 0.9rem;
+        color: #c4c4c4;
+      }
+
+      .watch-button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #2a9d8f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 70px;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 1200px;
+        width: 90%;
+        height: 500px;
+        position: relative;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #f4a261;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      /* Load More Button */
+      .load-more {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #e9c46a;
+        font-family: poppins;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .load-more:hover {
+        background-color: #f4a261;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .cards-container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Footer Styles */
+      #footer {
+        position: relative;
+        width: 100%;
+        height: 330px;
+        background-color: #264653;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 20px;
+        overflow: hidden;
+        bottom: 0;
+      }
+
+      /* Rotating Logo Background */
+      #footer .footer-background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: rotate3D 20s infinite linear;
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      #footer .footer-background img {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+      }
+
+      /* 3D Rotation Animation */
+      @keyframes rotate3D {
+        from {
+          transform: translate(-50%, -50%) rotateY(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotateY(360deg);
+        }
+      }
+
+      /* Footer Content Styling */
+      #footer .footer-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0;
+        z-index: 2;
+      }
+
+      #footer .footer-container div {
+        flex: 1;
+        padding: 20px;
+      }
+
+      footer h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #e9c46a;
+      }
+
+      #footer p {
+        line-height: 1.7;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        text-align: justify;
+      }
+
+      /* List and Links Styling */
+      #footer .footer ul {
+        list-style: none; /* Remove list markers */
+        padding-left: 0; /* No indentation */
+      }
+
+      #footer .footer ul li {
+        margin-bottom: 10px;
+      }
+
+      #footer .footer ul li a {
+        color: white;
+        text-decoration: none; /* No underline */
+        font-size: 0.95rem;
+        transition: color 0.3s;
+      }
+
+      #footer .footer ul li a:hover {
+        color: #2a9d8f;
+      }
+
+      /* Subscribe Form */
+      #footer .subscribe-form {
+        display: flex;
+        margin-top: 10px;
+      }
+
+      #footer .subscribe-form input {
+        flex: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 0.9rem;
+        outline: none;
+        font-family: poppins;
+      }
+
+      #footer .subscribe-form button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #2a9d8f;
+        font-family: poppins;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 0.9rem;
+      }
+
+      #footer .subscribe-form button:hover {
+        background-color: #21867a;
+      }
+
+      /* Footer Bottom */
+      #footer .footer-bottom {
+        margin-top: 10px;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.85rem;
+
+        z-index: 2;
+      }
+
+      #footer .footer-social a {
+        margin: 0px;
+        color: white;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+        text-decoration: none; /* Ensure no underline */
+      }
+
+      #footer .footer-social a:hover {
+        color: #2a9d8f;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-container div {
+          padding: 10px;
+        }
+
+        .footer-social a {
+          margin: 0 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" style="background: #264653">
+      <div class="logo">
+        <img
+          src="images/jawom logo - Copy.png"
+          height="55"
+          width="65"
+          alt="JAWOM Logo"
+        />
+        <div class="logo-text">
+          <span class="main">JAWOM</span>
+          <span class="sub">Jesus Is Life World Outreach Ministries</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a class="a" href="#"
+              ><i class="fa fa-heart" aria-hidden="true"></i>Give</a
+            >
+          </li>
+
+          <li>
+            <a class="b" href="#newComer"
+              ><i class="fas fa-handshake"></i>New To JAWOM</a
+            >
+          </li>
+
+          <li>
+            <a class="c" href="#"><i class="fas fa-bible"></i>Devotional</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button id="openSidebarBtn">
+        <i class="fa fa-bars" aria-hidden="true"></i> Open
+      </button>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+      <button id="closeSidebarBtn">&times;</button>
+      <br />
+      <div class="sidebar-content">
+        <div class="banner">
+          Next Service Begins in:
+          <div class="countdown" id="countdownTimer">00d 00h 00m 00s</div>
+          <button>Join Us Online</button>
+        </div>
+
+        <div class="menu-container">
+          <ul>
+            <li><a href="">Centers</a></li>
+            <li><a href="">Events</a></li>
+            <li><a href="">Sermons</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+
+          <ul>
+            <h3>Volunteer</h3>
+            <li>On Campus</li>
+            <li>Local Community</li>
+            <li>Mission Experiences</li>
+          </ul>
+
+          <ul>
+            <h3>Connect</h3>
+
+            <li>Prayer Day</li>
+            <li>Youths</li>
+            <li>Kids</li>
+            <li>Weekly Activities</li>
+          </ul>
+        </div>
+
+        <div class="social">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+
+        <footer>&copy; 2024 JAWOM All Rights Reserved.</footer>
+      </div>
+    </div>
+
+    <h1>Service Archives</h1>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input
+        width="400px"
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search by topic, minister, or date..."
+        oninput="filterCards()"
+      />
+      <i class="fas fa-search"></i>
+      
+      <select class="month-filter" id="monthFilter" onchange="filterCards()">
+        <option value="">Filter by Month</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    
+    <center>
+      <!-- Cards Container -->
+      <div id="cardsContainer" class="cards-container">
+        <!-- Unique Cards with different data attributes -->
+        <div class="card" data-topic="Faith and Healing" data-minister="Pastor John" data-date="2023-01-15" data-video="https://www.youtube.com/embed/example1">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Faith and Healing</div>
+          <div class="service-minister">Pastor John</div>
+          <div class="service-date">2023-01-15</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Power of Prayer" data-minister="Reverend Sarah" data-date="2023-02-10" data-video="https://www.youtube.com/embed/example2">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Power of Prayer</div>
+          <div class="service-minister">Reverend Sarah</div>
+          <div class="service-date">2023-02-10</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Grace and Forgiveness" data-minister="Bishop Mark" data-date="2023-03-05" data-video="https://www.youtube.com/embed/example3">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Grace and Forgiveness</div>
+          <div class="service-minister">Bishop Mark</div>
+          <div class="service-date">2023-03-05</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Love and Compassion" data-minister="Pastor Grace" data-date="2023-04-20" data-video="https://www.youtube.com/embed/example4">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Love and Compassion</div>
+          <div class="service-minister">Pastor Grace</div>
+          <div class="service-date">2023-04-20</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Faith in Action" data-minister="Evangelist Paul" data-date="2023-05-30" data-video="https://www.youtube.com/embed/example5">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Faith in Action</div>
+          <div class="service-minister">Evangelist Paul</div>
+          <div class="service-date">2023-05-30</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Hope in Difficult Times" data-minister="Pastor Joy" data-date="2023-06-25" data-video="https://www.youtube.com/embed/example6">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Hope in Difficult Times</div>
+          <div class="service-minister">Pastor Joy</div>
+          <div class="service-date">2023-06-25</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        <div class="card" data-topic="Faith and Healing" data-minister="Pastor John" data-date="2023-01-15" data-video="https://www.youtube.com/embed/example1">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Faith and Healing</div>
+          <div class="service-minister">Pastor John</div>
+          <div class="service-date">2023-01-15</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Power of Prayer" data-minister="Reverend Sarah" data-date="2023-02-10" data-video="https://www.youtube.com/embed/example2">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Power of Prayer</div>
+          <div class="service-minister">Reverend Sarah</div>
+          <div class="service-date">2023-02-10</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Grace and Forgiveness" data-minister="Bishop Mark" data-date="2023-03-05" data-video="https://www.youtube.com/embed/example3">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Grace and Forgiveness</div>
+          <div class="service-minister">Bishop Mark</div>
+          <div class="service-date">2023-03-05</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Love and Compassion" data-minister="Pastor Grace" data-date="2023-04-20" data-video="https://www.youtube.com/embed/example4">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Love and Compassion</div>
+          <div class="service-minister">Pastor Grace</div>
+          <div class="service-date">2023-04-20</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Faith in Action" data-minister="Evangelist Paul" data-date="2023-05-30" data-video="https://www.youtube.com/embed/example5">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Faith in Action</div>
+          <div class="service-minister">Evangelist Paul</div>
+          <div class="service-date">2023-05-30</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <div class="card" data-topic="Hope in Difficult Times" data-minister="Pastor Joy" data-date="2023-06-25" data-video="https://www.youtube.com/embed/example6">
+          <div class="iframe-placeholder">Video Preview</div>
+          <div class="service-topic">Hope in Difficult Times</div>
+          <div class="service-minister">Pastor Joy</div>
+          <div class="service-date">2023-06-25</div>
+          <button class="watch-button" onclick="openModal(this)">Watch</button>
+        </div>
+        
+        <!-- Add more unique cards as needed -->
+      </div>
+    </center>
+    
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <button class="close-button" onclick="closeModal()">X</button>
+        <iframe
+          id="modalIframe"
+          width="100%"
+          height="400px"
+          src=""
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Load More Button -->
+    <center>
+      <button id="loadMoreBtn" class="load-more" onclick="loadMore()">
+        Load More
+      </button>
+    </center>
+
+    <br /><br />
+
+    <footer id="footer">
+      <div class="footer-background">
+        <img src="images/jawom logo - Copy.png" alt="JAWOM Logo" />
+      </div>
+
+      <div class="footer-container">
+        <div>
+          <h2>About JAWOM</h2>
+          <p>
+            Jesus Alive Word Outreach Ministries (JAWOM) has been preaching
+            Jesus, the Life, and the Soon Coming King, for over 40 years.
+          </p>
+        </div>
+
+        <div>
+          <h2>Quick Links</h2>
+
+          <span>About Us</span>
+          <br />
+
+          <span>Semons</span>
+
+          <br />
+          <span>Events</span>
+
+          <br />
+          <span>Contact</span>
+        </div>
+
+        <div>
+          <h2>Contact Us</h2>
+          <!-- <ul>
+        <li>123 Church Street, Zaria, Nigeria</li>
+        <li>+234 123 456 7890</li>
+        <li>info@jawom.org</li>
+      </ul> -->
+
+          <span> 123 Church Street, Zaria, Nigeria </span>
+          <br />
+          <span> +234 123 456 7890</span>
+          <br />
+          <span> info@jawom.org</span>
+          <br />
+        </div>
+
+        <div>
+          <h2>Subscribe</h2>
+          <p>Get updates directly in your inbox.</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 JAWOM. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Sidebar toggle logic
+      const sidebar = document.getElementById("sidebar");
+      const openSidebarBtn = document.getElementById("openSidebarBtn");
+      const closeSidebarBtn = document.getElementById("closeSidebarBtn");
+      const sidebarContent = document.querySelector(".sidebar-content"); // Sidebar content
+
+      let isSidebarOpen = false;
+
+      openSidebarBtn.addEventListener("click", function () {
+        if (isSidebarOpen) {
+          // Close sidebar with fade-out effect
+          sidebar.classList.remove("active");
+          sidebarContent.style.opacity = "0"; // Start fading out
+          setTimeout(() => {
+            sidebarContent.style.visibility = "hidden"; // Hide halfway through
+          }, 250); // Halfway of 0.5s transition
+
+          openSidebarBtn.innerHTML =
+            '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        } else {
+          // Open sidebar with fade-in effect
+          sidebar.classList.add("active");
+          setTimeout(() => {
+            sidebarContent.style.visibility = "visible"; // Show halfway through
+            sidebarContent.style.opacity = "1"; // Start fading in
+          }, 250); // Halfway of 0.5s transition
+
+          openSidebarBtn.innerHTML =
+            '<i class="fa fa-times" aria-hidden="true"></i> Close';
+        }
+        isSidebarOpen = !isSidebarOpen;
       });
 
-      cardContainer.innerHTML = filteredCards.slice(0, cardsShown).map(generateCardHTML).join('');
-      loadMoreButton.style.display = cardsShown >= filteredCards.length ? 'none' : 'block';
+      closeSidebarBtn.addEventListener("click", function () {
+        sidebar.classList.remove("active");
+        sidebarContent.style.opacity = "0"; // Start fading out
+        setTimeout(() => {
+          sidebarContent.style.visibility = "hidden"; // Hide halfway through
+        }, 250); // Halfway of 0.5s transition
+
+        openSidebarBtn.innerHTML =
+          '<i class="fa fa-bars" aria-hidden="true"></i> Open';
+        isSidebarOpen = false;
+      });
+
+      // Countdown to Sunday at 7:30 AM
+      function updateCountdown() {
+        const now = new Date();
+        const nextSunday = new Date();
+        nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+        nextSunday.setHours(10, 30, 0, 0); // 7:30 AM
+
+        const timeDiff = nextSunday - now;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById(
+          "countdownTimer"
+        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (timeDiff < 0) {
+          document.getElementById("countdownTimer").innerHTML =
+            "Service is Live!";
+        }
+      }
+
+      setInterval(updateCountdown, 1000); // Update every second
+
+     
+let currentVisibleCards = 3; // Number of cards visible initially
+
+// Function to filter cards based on search input and month filter
+function filterCards() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const month = document.getElementById("monthFilter").value;
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const topic = card.getAttribute("data-topic").toLowerCase();
+    const minister = card.getAttribute("data-minister").toLowerCase();
+    const date = card.getAttribute("data-date"); // Keep date in original format
+    const cardMonth = date.substring(5, 7); // Extract month from date
+
+    // Show card if it matches search input and month filter
+    if (
+      (topic.includes(input) || minister.includes(input) || date.includes(input)) &&
+      (month === "" || cardMonth === month)
+    ) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
+  });
+}
 
-    // Event listeners for search and filters
-    searchInput.addEventListener('input', filterAndSearchCards);
-    ministerFilter.addEventListener('change', filterAndSearchCards);
-    yearFilter.addEventListener('change', filterAndSearchCards);
-  </script>
+// Load More Function
+function loadMore() {
+  const cards = document.querySelectorAll(".card");
+  currentVisibleCards += 6;
+  cards.forEach((card, index) => {
+    if (index < currentVisibleCards) {
+      card.style.display = "block";
+    }
+  });
+  if (currentVisibleCards >= cards.length) {
+    document.getElementById("loadMoreBtn").style.display = "none";
+  }
+}
 
-</body>
+// Open Modal Function
+function openModal(button) {
+  const videoUrl = button.parentElement.getAttribute("data-video");
+  document.getElementById("modalIframe").src = videoUrl;
+  document.getElementById("modal").style.display = "flex";
+}
+
+// Close Modal Function
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("modalIframe").src = ""; // Stop video playback
+}
+
+// Initialize visibility of cards
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card, index) => {
+    if (index >= currentVisibleCards) {
+      card.style.display = "none";
+    }
+  });
+});
+
+
+    
+    </script>
+  </body>
 </html>

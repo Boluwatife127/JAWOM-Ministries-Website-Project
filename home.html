@@ -14,7 +14,15 @@
 </head>
 
 <body>
-
+    <div id="page-loader">
+        <div class="loader-content">
+          <img src="images/jawom logo.png" alt="Loader Image" width="210" height="145">
+          <center><p>JAWOM</p>
+          <div class="loading-bar"></div></center>
+        </div>
+      </div>
+      
+<div id="main-content" style="display: none;">
     <header id="header" style="background: #264653;">
         <div class="logo">
             <img src="images/jawom logo - Copy.png" height="55" width="65" alt="JAWOM Logo">
@@ -368,10 +376,41 @@
     
 
     <div class="view" id="view">
-        <div class="iframe-container">
-            <h2>Enjoy the Arial View of Our Church</h2>
-            <iframe src="https://www.youtube.com/embed/CMtR5J4XY04" frameborder="0" allowfullscreen></iframe>
+        <h1>Our Locations</h1>
+        <div class="locations-grid">
+          <div class="location-card">
+            <div class="location-title">Headquarters</div>
+            <div class="location-city">Kaduna</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 9:00 AM</div>
+          </div>
+          <div class="location-card">
+            <div class="location-title">Restoration Center</div>
+            <div class="location-city">Abuja</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 11:00 AM</div>
+          </div>
+          <div class="location-card">
+            <div class="location-title">Redemption Center</div>
+            <div class="location-city">Ilorin</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 8:00 AM</div>
+          </div>
+          <div class="location-card">
+            <div class="location-title">Faith Hall</div>
+            <div class="location-city">Zaria</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 10:00 AM</div>
+          </div>
+          <div class="location-card">
+            <div class="location-title">Grace Arena</div>
+            <div class="location-city">Lagos</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 12:00 PM</div>
+          </div>
+          <div class="location-card">
+            <div class="location-title">New Life Center</div>
+            <div class="location-city">Ibadan</div>
+            <div class="location-info">Join us online or in person<br>Service Time: 7:30 AM</div>
+          </div>
         </div>
+                                     
+        <a href="#map-section" class="join-button">Check out our map!</a>
 
     </div>
 
@@ -439,12 +478,21 @@
 
 
      
-
+</div>
 
 </body>
 
 <script>
 
+
+window.addEventListener('load', function() {
+  // Simulate a 5-second load time
+  setTimeout(() => {
+    document.getElementById('page-loader').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    document.body.style.overflow = 'auto'; // Allow scrolling after the loader disappears
+  }, 5000);
+});
 
 
 
